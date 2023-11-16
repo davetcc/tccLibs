@@ -1,8 +1,8 @@
 
+#ifdef BUILD_FOR_PICO_CMAKE
+
 #include "i2cWrapper.h"
 #include "PlatformDeterminationWire.h"
-
-#ifdef BUILD_FOR_PICO_CMAKE
 
 // on pico i2c is set up by the user before first use
 PicoI2cWrapper defaultWireType;
