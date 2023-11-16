@@ -19,9 +19,14 @@ Simply use library manager in either Arduino or PlatformIO. The libraries are di
 
 We support most Arduino variants (as many as we can in fact), and I'm not aware of a single board that it doesn't work on. However, if you find an issue please raise it, and we'll aim to fix it if at all possible.
 
-This monorepo is now the main source, The libraries are readily available for Arduino and there are read only repos for each library available in Arduino library manager (except non-arduino).
+This mono-repo is now the main source for library development. The libraries are readily available for Arduino and there are read-only repos for each library available in Arduino library manager. We need this additional repos because Arduino requires a repository per library. The Arduino library repos are as follows:
 
-* 
+* https://github.com/davetcc/TaskManagerIO
+* https://github.com/davetcc/tcMenuLib
+* https://github.com/davetcc/IoAbstraction
+* https://github.com/davetcc/tcUnicodeHelper
+* https://github.com/davetcc/SimpleCollections
+* https://github.com/davetcc/LiquidCrystalIO
 
 ### Using in PicoSDK
 
