@@ -17,11 +17,15 @@
 #include <tcUnicodeHelper.h>
 #include "Adafruit_SSD1306.h"
 #include "tcMenuAdaFruitGfxMono.h"
+#include <RemoteConnector.h>
+#include "StdioTransport.h"
+#include <RuntimeMenuItem.h>
 #include <IoAbstraction.h>
 #include <EepromItemStorage.h>
 
 // variables we declare that you may need to access
 extern const PROGMEM ConnectorLocalInfo applicationInfo;
+extern TcMenuRemoteServer remoteServer;
 extern AdafruitSSD1306Spi* gfx;
 extern AdafruitDrawable gfxDrawable;
 extern GraphicsDeviceRenderer renderer;
@@ -31,6 +35,13 @@ extern const GFXfont Org_01;
 
 
 // Global Menu Item exports
+extern EnumMenuItem menuDialogActive;
+extern ActionMenuItem menuShowDialog;
+extern DateFormattedMenuItem menuDateGr;
+extern TimeFormattedMenuItem menuTime12;
+extern TimeFormattedMenuItem menuTime24;
+extern BackMenuItem menuBackRuntimes;
+extern SubMenuItem menuRuntimes;
 extern FloatMenuItem menuA0Level;
 extern EnumMenuItem menuState;
 extern AnalogMenuItem menuRightVU;
@@ -49,6 +60,9 @@ void setupMenu();
 // Callback functions must always include CALLBACK_FUNCTION after the return type
 #define CALLBACK_FUNCTION
 
+void CALLBACK_FUNCTION onShowDialog(int id);
 void CALLBACK_FUNCTION onVolumeChanged(int id);
+
+extern const EmbedControlFlashedForm* tcMenuAllEmbeddedForms[];
 
 #endif // MENU_GENERATED_CODE_H

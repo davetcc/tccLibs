@@ -43,12 +43,14 @@ void setup() {
     taskManager.schedule(repeatMillis(250), [] {
         menuA0Level.setFloatValue(internalAnalogDevice().getCurrentFloat(ADC_PICO_FIRST_OFFSET));
     });
+
+    renderer.setResetIntervalTimeSeconds(30);
 }
 
 int main() {
     setup();
     while(1) {
-        taskManager.rpiSleepingRunLoop();
+        taskManager.runLoop();
     }
 }
 
@@ -57,4 +59,16 @@ void CALLBACK_FUNCTION onVolumeChanged(int id) {
     int mv = menuVolume.getMaximumValue();
     float fltVal = float(cv) / float(mv);
     internalAnalogDevice().setCurrentFloat(12, fltVal);
+}
+
+void onDialogEnding(ButtonType buttonPressed, void* data) {
+    serlogF2(SER_DEBUG, "Dialog ended ", buttonPressed);
+}
+
+void CALLBACK_FUNCTION onShowDialog(int id) {
+    withMenuDialogIfAvailable([](MenuBasedDialog *dlg) {
+        dlg->setButtons(BTNTYPE_ACCEPT, BTNTYPE_CANCEL, menuDialogActive.getCurrentValue());
+        dlg->show("Test Dialog", true, onDialogEnding);
+        dlg->copyIntoBuffer("Buffer data");
+    });
 }
