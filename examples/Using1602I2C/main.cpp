@@ -39,6 +39,6 @@ int main() {
     });
 
     while(true) {
-        taskManager.rpiSleepingRunLoop();
+        taskManager.runLoop();
     }
 }

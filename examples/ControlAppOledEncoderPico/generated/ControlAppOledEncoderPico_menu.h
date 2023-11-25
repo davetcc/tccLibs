@@ -19,6 +19,7 @@
 #include "tcMenuAdaFruitGfxMono.h"
 #include <RemoteConnector.h>
 #include "StdioTransport.h"
+#include <ScrollChoiceMenuItem.h>
 #include <RuntimeMenuItem.h>
 #include <IoAbstraction.h>
 #include <EepromItemStorage.h>
@@ -35,6 +36,15 @@ extern const GFXfont Org_01;
 
 
 // Global Menu Item exports
+extern BooleanMenuItem menuSet2B;
+extern ActionMenuItem menuSet2A;
+extern Rgb32MenuItem menuSet1D;
+extern BooleanMenuItem menuSet1C;
+extern FloatMenuItem menuSet1B;
+extern AnalogMenuItem menuSet1A;
+extern EnumMenuItem menuEnable;
+extern BackMenuItem menuBackDynamic;
+extern SubMenuItem menuDynamic;
 extern EnumMenuItem menuDialogActive;
 extern ActionMenuItem menuShowDialog;
 extern DateFormattedMenuItem menuDateGr;
@@ -60,6 +70,7 @@ void setupMenu();
 // Callback functions must always include CALLBACK_FUNCTION after the return type
 #define CALLBACK_FUNCTION
 
+void CALLBACK_FUNCTION onEnableChange(int id);
 void CALLBACK_FUNCTION onShowDialog(int id);
 void CALLBACK_FUNCTION onVolumeChanged(int id);
 

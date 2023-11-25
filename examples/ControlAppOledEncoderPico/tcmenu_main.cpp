@@ -72,3 +72,20 @@ void CALLBACK_FUNCTION onShowDialog(int id) {
         dlg->copyIntoBuffer("Buffer data");
     });
 }
+
+
+
+void CALLBACK_FUNCTION onEnableChange(int id) {
+    bool set1Visible = menuEnable.getCurrentValue() == 0;
+
+    // enable and disable all the items in the menu based on the enum value
+    menuSet1A.setVisible(set1Visible);
+    menuSet1B.setVisible(set1Visible);
+    menuSet1C.setVisible(set1Visible);
+    menuSet1D.setVisible(set1Visible);
+    menuSet2A.setVisible(!set1Visible);
+    menuSet2B.setVisible(!set1Visible);
+
+    // as we've structurally changed the layout of the active menu, we have to tell menu mgr
+    menuMgr.notifyStructureChanged();
+}
