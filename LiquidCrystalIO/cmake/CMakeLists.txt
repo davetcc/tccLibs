@@ -1,4 +1,4 @@
-add_library(LiquidCrystalIO src/LiquidCrystalIO.cpp )
+add_library(LiquidCrystalIO ../src/LiquidCrystalIO.cpp )
 
 target_compile_definitions(IoAbstraction
         PUBLIC BUILD_FOR_PICO_CMAKE=1 BUILD_PICO_FORCE_UART=1 IO_LOGGING_DEBUG=1

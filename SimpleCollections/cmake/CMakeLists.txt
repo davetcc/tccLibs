@@ -1,7 +1,7 @@
 add_library(SimpleCollections
-        src/SCCircularBuffer.cpp
-        src/SCThreadingSupport.cpp
-        src/SimpleCollections.cpp
+        ../src/SCCircularBuffer.cpp
+        ../src/SCThreadingSupport.cpp
+        ../src/SimpleCollections.cpp
 )
 
 target_compile_definitions(SimpleCollections
