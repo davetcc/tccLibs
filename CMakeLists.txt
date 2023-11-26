@@ -9,12 +9,12 @@ set(CMAKE_CXX_STANDARD 17)
 
 pico_sdk_init()
 
-add_subdirectory(SimpleCollections)
+add_subdirectory(SimpleCollections/cmake)
 add_subdirectory(TaskManagerIO)
 add_subdirectory(IoAbstraction)
 add_subdirectory(tcMenu)
 add_subdirectory(tcUnicodeHelper)
-add_subdirectory(LiquidCrystalIO)
+add_subdirectory(LiquidCrystalIO/cmake)
 add_subdirectory(AdafruitGFXNativePort)
 
 IF(NOT DEFINED "ENV{TC_CMAKE_EXCLUDE_EXAMPLES}")
